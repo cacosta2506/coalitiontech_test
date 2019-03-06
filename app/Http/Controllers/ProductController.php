@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Product;
+use App\Http\Requests\CreateFormRequest;
 
 class ProductController extends Controller {
 
@@ -33,7 +34,7 @@ class ProductController extends Controller {
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request) {
+    public function store(CreateFormRequest $request) {
 
         Product::create([
             'name' => $request->input('product_name'),
@@ -71,7 +72,7 @@ class ProductController extends Controller {
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Product $product, Request $request) {
+    public function update(Product $product, CreateFormRequest $request) {
         $product->update([
             'name' => $request->input('product_name'),
             'quantity' => $request->input('quantity'),

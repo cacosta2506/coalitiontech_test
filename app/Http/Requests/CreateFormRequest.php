@@ -12,7 +12,7 @@ class CreateFormRequest extends FormRequest {
      * @return bool
      */
     public function authorize() {
-        return false;
+        return true;
     }
 
     /**
@@ -22,9 +22,9 @@ class CreateFormRequest extends FormRequest {
      */
     public function rules() {
         $rules = [
-            'name' => 'required|string',
+            'product_name' => 'required|string',
             'quantity' => 'required|integer',
-            'price' => 'required|between:0,99999999.99',
+            'price' => 'required|regex:/^\d+(\.\d{1,2})?$/',
             
         ];
 
@@ -34,9 +34,9 @@ class CreateFormRequest extends FormRequest {
 
     public function messages() {
         return [
-            'name.required' => 'The name is required',
-            'quantity.required' => 'The name is required',
-            'price.required' => 'The name is required',
+            'product_name.required' => 'The product name is required',
+            'quantity.required' => 'The quantity is required',
+            'price.required' => 'The price is required',
         ];
     }
 

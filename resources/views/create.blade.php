@@ -14,7 +14,7 @@
                             <span class="input-group-text" id="">Product Name</span>
                         </div>
                         <input type="text" name="product_name" class="form-control">
-                        @if ($errors->has('name'))
+                        @if ($errors->has('product_name'))
                         <span class="error_div">
                             <strong>{{ $errors->first('product_name') }}</strong>
                         </span>
@@ -33,14 +33,14 @@
                         @endif
                     </div>
 
-                    <div class="input-group{{ $errors->has('quantity') ? ' has-error' : '' }}">
+                    <div class="input-group{{ $errors->has('price') ? ' has-error' : '' }}">
                         <div class="input-group-prepend">
                             <span class="input-group-text" id="">Price</span>
                         </div>
                         <input type="text" name="price"class="form-control">
-                        @if ($errors->has('quantity'))
+                        @if ($errors->has('price'))
                         <span class="error_div">
-                            <strong>{{ $errors->first('quantity') }}</strong>
+                            <strong>{{ $errors->first('price') }}</strong>
                         </span>
                         @endif
                     </div>
